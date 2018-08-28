@@ -25,6 +25,19 @@
 
     </header>
 <body>
+
+
+        <div class="preloader-wrapper big active "  id='barra' style="position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;z-index:9999999 ;">
+                <div class="spinner-layer spinner-red-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
 <div class='row'>
 
     <div class='col s12'>
@@ -156,10 +169,11 @@ var defaultDatabase = instancia.database();
 var starCountRef = firebase.database().ref('WEB/'+serial);
 
 starCountRef.on('value', function(snapshot) {
+     
   instances.close();
     var paso=false;
     var veces=0;
-
+document.getElementById("barra").style.display="none";
        firebase.database().ref('Devices').once('value').then(function(snapshot2) {
          
 
@@ -194,9 +208,9 @@ console.log(snapshot2.val()[child.key].ip.toString());
              veces++;
            //  if()
 
-
+         lista.innerHTML.replace("<li class='collection-item center'><div>No hay dispositivos disponibles</div></li>","");
          lista.innerHTML+="<a href='"+link+"'><li  class='collection-item avatar'><img src='"+img+"' alt='' class='circle' style='margin-top:12px;'><span class='title' style='color:gray'>"+nombre+"</span><p style='font-size:15px;color:gray;'>"+ip+"<br>"+elementos+"</p><a  class='secondary-content'><i class='material-icons' style='color:#fe2a29;margin-top:10px;font-size:35px'>navigate_next</i></a></li></a>"
-    
+        
     
     
          console.log(snapshot2.val()[child.key]);
