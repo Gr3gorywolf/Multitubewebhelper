@@ -1,5 +1,8 @@
 <head>
     <title>Multitube web</title>
+    <meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -65,7 +68,7 @@
 
                 </div>
                 <div class='col s12'>
-                        <p style="font-size:13px;color:gray; "><i class='material-icons inline-icon'>android</i>    Expandir notificacion de servicio de streaming>Conectarse <br> <br><i class='material-icons inline-icon'>computer</i> Menu hamburguer>Multitube web>Agregar cliente web</p>
+                        <p style="font-size:13px;color:gray; "><i class='material-icons inline-icon'>android</i>    Expandir notificacion de servicio de streaming>Conectarse <br> <br><i class='material-icons inline-icon'>computer</i> Menu hamburguer>Multitube web>Agregar cliente web <br> <br><i class='material-icons inline-icon'>info</i> Si no aparece su dispositivo y su servicio de streaming esta abierto por favor <i class='material-icons inline-icon'>refresh</i>La pagina </p>
     
                     </div>
                     </div>
@@ -155,7 +158,7 @@ var starCountRef = firebase.database().ref('WEB/'+serial);
 starCountRef.on('value', function(snapshot) {
   instances.close();
     var paso=false;
- 
+    var veces=0;
 
        firebase.database().ref('Devices').once('value').then(function(snapshot2) {
          
@@ -188,6 +191,7 @@ console.log(snapshot2.val()[child.key].ip.toString());
              let ip=snapshot2.val()[child.key].ip.toString()
              let nombre=snapshot2.val()[child.key].Nombre.toString()
              let link="http://"+ip+":12345";
+             veces++;
            //  if()
 
 
@@ -199,7 +203,10 @@ console.log(snapshot2.val()[child.key].ip.toString());
        
     }
     else {
-        
+        if(veces==0 &&  lista.innerHTML==""){
+
+          lista.innerHTML="<li class='collection-item center'><div>No hay dispositivos disponibles</div></li>";
+           }
         // site is offline (or favicon not found, or server is too slow)
     }
     })
@@ -210,7 +217,7 @@ console.log(snapshot2.val()[child.key].ip.toString());
                 
 
 
-
+   
 
 
              });
@@ -265,16 +272,34 @@ function isSiteOnline(url,callback) {
 
     var img = document.createElement("img");
     img.onload = function() {
-       
+        borrarcache(url);
         clearTimeout(timer);
         callback(true);
+        
     }
 
     img.onerror = function() {
+       borrarcache(url);
         clearTimeout(timer);
         callback(false);
     }
+    var num = Math.random();
+    img.src = "http://"+url+":12345/.gr3cache/alert.png?v="+num;
+}
 
-    img.src = "http://"+url+":12345/.gr3cache/alert.png";
+function borrarcache(url){
+try{
+    caches.open('v1').then(function(cache) {
+  cache.delete("http://"+url+":12345/.gr3cache/alert.png").then(function(response) {
+  
+  });
+})
+
+}catch(err){
+
+
+}
+
+
 }
 </script>
