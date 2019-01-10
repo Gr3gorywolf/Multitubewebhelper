@@ -7,7 +7,7 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-
+     <link rel="icon" href="img/Icona.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -17,8 +17,8 @@
     <header>
       <div class='navbar-fixed'>
         <nav>
-          <div class="nav-wrapper" style="background-color: #fe2a29">
-            <img href="#" class="brand-logo left" src="img/Icona.png" style="width:40px;margin-top:12px;margin-bottom:10px;margin-left:10px "><span style="font-size:25px;margin-left:65px ">Multitube Web</span>
+          <div class="nav-wrapper" style="background-color: #323538">
+            <img href="#" class="brand-logo" src="img/logo.png" style="width:220px;height:60px;margin-top:4px;margin-bottom:10px;margin-left:10px ">
           </div>
         </nav>
       </div>
@@ -37,7 +37,7 @@
               </div>
               <div class='row'>
                 <div class='col s12'>
-                  <h4 class='center' style="color: #fe2a29"> Dispositivos disponibles</h4>
+                  <h4 class='center' style="color: #323538"> Dispositivos disponibles</h4>
                 </div>
                 <div class='row'>
                   <div class='col s12'>
@@ -49,11 +49,11 @@
                   </div>
                 </div>
 
-                <a class="btn-floating btn-large waves-effect waves-light red  modal-trigger"  id='botonsito' href="#modal1"> <i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light  modal-trigger"  id='botonsito' href="#modal1" style="background-color:#323538"> <i class="material-icons">add</i></a>
 
                 <div id="modal1" class="modal modal-fixed-footer">
                   <div class="modal-content center">
-                    <h5 style="font-size:18px;color:#fe2a29">Como conectar nuevos dispositivos?</h5>
+                    <h5 style="font-size:18px;color:#323538">Como conectar nuevos dispositivos?</h5>
                     <div class='row'>
                       <div class='col s12'>
                         <h5  style="font-size:15px;">Escanear el siguiente codigo</h5>
@@ -65,7 +65,7 @@
                         <h5 style="font-size:15px;">O introducir el siguiente codigo</h5>
                       </div>
                       <div class='col s12'>
-                        <h5 style="font-size:20px; color: #fe2a29" id='serial'>5345654</h5>
+                        <h5 style="font-size:20px; color: #323538" id='serial'>5345654</h5>
                       </div>
                       <div class='col s12'>
                         <p style="font-size:13px;color:gray; "><i class='material-icons inline-icon'>android</i>    Expandir notificacion de servicio de streaming>Conectarse <br> <br><i class='material-icons inline-icon'>computer</i> Menu hamburguer>Multitube web>Agregar cliente web <br> <br><i class='material-icons inline-icon'>info</i> Si no aparece su dispositivo y su servicio de streaming esta abierto por favor <i class='material-icons inline-icon'>refresh</i>La pagina </p>
@@ -74,7 +74,7 @@
                   </div>
 
                   <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-light btn-flat" style="color: #fe2a29">Entendido!!</a>
+                    <a href="#!" class="modal-close waves-effect waves-light btn-flat" style="color: #323538">Entendido!!</a>
                   </div>
                 </div>
 
@@ -87,7 +87,7 @@
               .inline-icon {
                 vertical-align: bottom;
                 font-size: 20px !important;
-                color:#fe2a29;
+                color:#323538;
               }
 
               #botonsito{
@@ -185,7 +185,7 @@ console.log(snapshot2.val()[child.key].ip.toString());
            //  if()
 
          lista.innerHTML.replace("<li class='collection-item center'><div>No hay dispositivos disponibles</div></li>","");
-         lista.innerHTML+="<a href='"+link+"'><li  class='collection-item avatar'><img src='"+img+"' alt='' class='circle' style='margin-top:12px;'><span class='title' style='color:gray'>"+nombre+"</span><p style='font-size:15px;color:gray;'>"+ip+"<br>"+elementos+"</p><a  class='secondary-content'><i class='material-icons' style='color:#fe2a29;margin-top:10px;font-size:35px'>navigate_next</i></a></li></a>"
+         lista.innerHTML+="<a href='"+link+"'><li  class='collection-item avatar'><img src='"+img+"' alt='' class='circle' style='margin-top:12px;'><span class='title' style='color:gray'>"+nombre+"</span><p style='font-size:15px;color:gray;'>"+ip+"<br>"+elementos+"</p><a  class='secondary-content'><i class='material-icons' style='color:#323538;margin-top:10px;font-size:35px'>navigate_next</i></a></li></a>"
 
 
 
